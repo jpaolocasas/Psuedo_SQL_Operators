@@ -1,6 +1,10 @@
 # Psuedo_SQL_Operators
 Code written for the User-Center Systems for Data Science (CS599 Fall 2021) course at Boston University with instructor John Liagouris. Implemented SQL operators from scratch in Python to mimic a recommendation system using movie relational databases.
 
+
+## Included Files
+The SQL_operators.py file contains all the code pertaining to the implementation of the SQL-based operators and any additional explanability methods. The tests.py file is a complementary file containing test querys using pytest to check the correctness of the operators.
+
 ## Input Data
 
 Queries of assignments 1 and 2 expect two space-delimited text files (similar to CSV files). 
