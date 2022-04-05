@@ -3,7 +3,7 @@ Code written for the User-Center Systems for Data Science (CS599 Fall 2021) cour
 
 
 ## Included Files
-The SQL_operators.py file contains all the code pertaining to the implementation of the SQL-based operators and any additional explanability methods. The tests.py file is a complementary file containing test querys using pytest to check the correctness of the operators.
+The SQL_operators.py file contains all the code pertaining to the implementation of the SQL-based operators and any additional explanability methods. The tests.py file is a complementary file containing test queries using pytest to check the correctness of the operators.
 
 ## Input Data
 
@@ -69,17 +69,17 @@ In SQL this would look like:
  ## Class Methods
  Each operator implemented is a class with the following methods init(), get_next(), lineage(), and where().
  
- The init() method simply creates an instance of the operator and handles any initalization steps before a request for data is made.
+ The init() method simply creates an instance of the operator and handles any initialization steps before a request for data is made.
  
  The get_next() method is used to grab the next batch of data for processing. The system is pull-based so by sending the data in batches, unnecessary memory usage is avoided. This pipelined fashion of sending data in batches is favorable when compared to the alternative of loading the entire input file in memory. Since the system is pull-based, the get_next() method also handles most of the "operator" behavior as well.
  
  The lineage() method is used to get the collection of input tuples (raw data) that contributed to the output of the query.
  
- The where() method builds upon the lineage() method and rather than returning just the value input tuple itself, it also returns data regarding the specific input file and line number the input tuple originiated from. The lineage() and where() methods required back-tracking techniques and some metadata to be saved at each stage in the query but allow for higher output explanability in return.
+ The where() method builds upon the lineage() method and provides information regarding where a tuple originated from by returning the original tuple, file name, and line number. The lineage() and where() methods required back-tracking techniques and some metadata to be saved at each stage in the query but allow for higher output explanability in return.
  
  ## Additional Methods
- Lastly, there are the how() and responsible_inputs() methods that are designed to be used on the output of an entire query (as opposed to the lineage() and where() methods that can be used at any point in the data pipeline).
+ Lastly, there are the how() and responsible_inputs() methods that are better suited to be used on the final output of a query (as opposed to the lineage() and where() methods that can be used at any point in the data pipeline).
  
- The how() method provides information regarding how the output was computed by returning a string containing pairs of unique identifiers which co-exist in the input files, the attribute value (movie rating) associated with the pairs, and the operation (such as AVG) which computed the output based on the attribute value.
+ The how() method provides information regarding how the output was computed by returning a string detailing which friend-movie ID pairs co-exist in the input files based on the selection criteria, the values of the movie ratings that were used as inputs, and the operation (such as AVG) which resulted in the output.
  
- As the name suggests, the responsible_inputs() method returns the input tuples that contributed 50% or more to the ouput.
+ As the name suggests, the responsible_inputs() method returns the input tuples that contributed 50% or more to the output.
