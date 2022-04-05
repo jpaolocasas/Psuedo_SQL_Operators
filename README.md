@@ -1,5 +1,5 @@
 # Psuedo_SQL_Operators
-Python code written for the User-Center Systems for Data Science (CS599 Fall 2021) course at Boston University with instructor John Liagouris. Implemented SQL operators from scratch in Python to mimic a recommendation system using movie relational databases.
+Code written for the User-Center Systems for Data Science (CS599 Fall 2021) course at Boston University with instructor John Liagouris. Implemented SQL operators from scratch in Python to mimic a recommendation system using movie relational databases.
 
 ## Input Data
 
